@@ -7,20 +7,27 @@ type Props = {
   text: string;
   size?: number;
   img?: string;
+  active?: boolean;
 };
 
-const SidebarCard = ({ icon = FaCircleUser, text, size = 30, img }: Props) => {
+const SidebarCard = ({
+  icon = FaCircleUser,
+  text,
+  size = 30,
+  img,
+  active,
+}: Props) => {
   console.log(icon);
   const CardIcon = icon;
   return (
     <>
-      <div className="p-2 flex items-center gap-3 cursor-pointer rounded-lg transition-colors duration-300 hover:bg-neutral-900">
-        <div className="pl-1 w-[17%] flex items-center justify-center">
+      <div className="px-3 py-2 flex items-center gap-4 cursor-pointer rounded-lg transition-colors duration-200 hover:bg-neutral-900">
+        <div className="w-[17%] flex items-center justify-center">
           {img != null ? (
             <>
               <img
                 src={img}
-                className="rounded-full border border-amber-50"
+                className="rounded-full border w-7 h-7 border-neutral-500"
                 alt="perfil"
               />
             </>
@@ -28,7 +35,12 @@ const SidebarCard = ({ icon = FaCircleUser, text, size = 30, img }: Props) => {
             <CardIcon size={size} color="white" />
           )}
         </div>
-        <p className="text-white">{text}</p>
+
+        {active ? (
+          <p className="text-white font-bold">{text}</p>
+        ) : (
+          <p className="text-white">{text}</p>
+        )}
       </div>
     </>
   );

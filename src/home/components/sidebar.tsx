@@ -13,16 +13,13 @@ import profilePic from "../../img/fotoperfil.jpg";
 
 const Sidebar = () => {
   return (
-    <div className="bg-black pt-1.5 pl-2 pr-2 pb-2.5 grid grid-rows-[1fr_4fr_1fr] border-r border-zinc-800">
-      <div className="h-full flex items-center pl-4">
-        <img
-          src={instaLogo}
-          alt="Instagram"
-          className="w-[49%] h-[56%] invert"
-        />
-      </div>
+    <div className="fixed top-0 left-0 h-screen w-[18%] bg-black px-2 py-4 flex flex-col justify-between border-r border-zinc-800">
       <div className="border h-full flex flex-col gap-2.5">
-        <SidebarCard icon={MdHomeFilled} text="Página inicial" />
+        <div className="h-16 flex items-center pl-3 mb-4">
+          <img src={instaLogo} alt="Instagram" className="w-26 h-14 invert" />
+        </div>
+
+        <SidebarCard icon={MdHomeFilled} text="Página inicial" active={true} />
         <SidebarCard icon={IoSearchOutline} text="Pesquisa" />
         <SidebarCard icon={FaRegCompass} size={24} text="Explorar" />
         <SidebarCard icon={FaClapperboard} size={23} text="Reels" />
@@ -31,7 +28,7 @@ const Sidebar = () => {
         <SidebarCard icon={LuSquarePlus} size={25} text="Criar" />
         <SidebarCard img={profilePic} size={25} text="Perfil" />
       </div>
-      <div className="border h-full flex flex-col gap-2 pt-2">
+      <div className="flex flex-col gap-2 pt-2">
         <SidebarCard icon={AiOutlineMenu} size={25} text="Mais" />
         <SidebarCard
           icon={HiOutlineSquares2X2}

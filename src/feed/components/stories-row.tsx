@@ -17,19 +17,21 @@ const StoriesRow = () => {
   const tamanho = Array(20).fill(null);
 
   return (
-    <div className="flex w-full overflow-hidden py-3 px-15 items-center justify-center gap-3">
+    <div className="flex w-full overflow-hidden pl-10 items-center justify-center gap-3 min-h-[170px]">
       {/* <div className="relative w-full min-h-max overflow-hidden border-b border-zinc-800 py-6 px-15"> */}
-      <button
-        // className="absolute w-6 h-6 left-12 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-2xl cursor-pointer font-sans"
-        className=" w-6 h-6 -translate-y-1/2 z-10 bg-white rounded-full shadow-2xl cursor-pointer font-sans"
-        onClick={scrollLeft}
-      >
-        {"<"}
-      </button>
+      <div className="relative mb-5">
+        <button
+          // className="absolute w-6 h-6 left-12 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-2xl cursor-pointer font-sans"
+          className="w-[24px] h-[24px] absolute -translate-y-1/2 z-10 bg-white rounded-full shadow-2xl cursor-pointer font-sans"
+          onClick={scrollLeft}
+        >
+          {"<"}
+        </button>
+      </div>
 
       <div
         ref={scrollRef}
-        className="flex flex-row gap-5 overflow-x-scroll scrollbar-hide w-160"
+        className="flex flex-row gap-5 overflow-x-scroll scrollbar-hide w-155 mb-3 mr-9"
       >
         {tamanho.map(() => {
           return (
@@ -41,14 +43,15 @@ const StoriesRow = () => {
           );
         })}
       </div>
-
-      <button
-        className="w-6 h-6 -translate-y-1/2 z-11 bg-white rounded-full shadow-2xl cursor-pointer"
-        // className="absolute right-15 top-1/2 w-6 h-6 -translate-y-1/2 z-11 bg-white rounded-full shadow-2xl cursor-pointer"
-        onClick={scrollRight}
-      >
-        {">"}
-      </button>
+      <div className="relative mb-5">
+        <button
+          className="w-[24px] h-[24px] absolute right-10 -translate-y-1/2 z-11 bg-white rounded-full shadow-2xl cursor-pointer"
+          // className="absolute right-15 top-1/2 w-6 h-6 -translate-y-1/2 z-11 bg-white rounded-full shadow-2xl cursor-pointer"
+          onClick={scrollRight}
+        >
+          {">"}
+        </button>
+      </div>
     </div>
   );
 };

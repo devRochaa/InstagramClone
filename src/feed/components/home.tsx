@@ -5,7 +5,7 @@ import Feed from "./feed";
 const Home = () => {
   return (
     <>
-      <div className="bg-black grid grid-rows-[0.22fr_0.78fr] pl-8">
+      <div className="bg-black grid grid-rows-[200px_80%]">
         <StoriesRow />
         <Feed />
       </div>
