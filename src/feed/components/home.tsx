@@ -1,6 +1,7 @@
 import React from "react";
 import StoriesRow from "./stories-row";
 import Feed from "./feed";
+import HomeSuggestions from "./home-suggestions";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
           <Feed />
         </div>
       </div>
-      <div className="bg-green-700" id="sugestions"></div>
+      <HomeSuggestions />
     </>
   );
 };
