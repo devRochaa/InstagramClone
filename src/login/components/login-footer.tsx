@@ -25,7 +25,7 @@ export default function LoginFooter() {
 
       <ul className="flex flex-wrap gap-5 justify-center mt-6">
         <li className="text-slate-800">Português (Brasil)</li>
-        <li className="text-slate-800">@ 2024 Instagram from Meta</li>
+        <li className="text-slate-800">© 2024 Instagram from Meta</li>
       </ul>
     </footer>
   );

@@ -1,12 +1,16 @@
 import React from "react";
 import pfp from "../../img/fotoperfil.jpg";
-import SuggestionCard from "./suggestions-card";
+import catPfp from "../../img/gatoazul.jpg";
+import car2 from "../../img/foto.jpeg";
+import mug from "../../img/istockphoto-672074756-mugshot.jpg";
+import HomeProfileCard from "./home-profile-card";
+import HomeFollowSuggestionCard from "./home-follow-suggestion-card";
 
 const HomeSuggestions = () => {
   return (
-    <div className="border-l border-zinc-800 bg-amber-300 h-full">
-      <div className="bg-black h-120 pl-5 pt-9 pr-14">
-        <SuggestionCard
+    <div className="border-l border-zinc-800 h-full">
+      <div className="bg-black h-137 pl-5 pt-9 pr-14">
+        <HomeProfileCard
           username="rochadaniel.o"
           name="daniel rocha"
           pfp={pfp}
@@ -22,42 +26,61 @@ const HomeSuggestions = () => {
             </p>
           </div>
           <div className="pt-3 flex flex-col gap-2">
-            <SuggestionCard
+            <HomeFollowSuggestionCard
               username="rochadaniel.o"
-              name="Seguido(a) por luans ..."
-              pfp={pfp}
+              followedBy="catdailymemes"
+              pfp={catPfp}
               action="Seguir"
-              textsize={12}
             />
-            <SuggestionCard
+            <HomeFollowSuggestionCard
               username="rochadaniel.o"
-              name="Seguido(a) por luans ..."
-              pfp={pfp}
+              followedBy="isisdone"
+              pfp={car2}
               action="Seguir"
-              textsize={12}
             />
-            <SuggestionCard
+            <HomeFollowSuggestionCard
               username="rochadaniel.o"
-              name="Seguido(a) por luans ..."
-              pfp={pfp}
+              followedBy="delpierro"
+              pfp={mug}
               action="Seguir"
-              textsize={12}
             />
-            <SuggestionCard
+            <HomeFollowSuggestionCard
               username="rochadaniel.o"
-              name="Seguido(a) por luans ..."
-              pfp={pfp}
+              followedBy="linkandlee"
+              pfp={catPfp}
               action="Seguir"
-              textsize={12}
             />
-            <SuggestionCard
+            <HomeFollowSuggestionCard
               username="rochadaniel.o"
-              name="Seguido(a) por luans ..."
-              pfp={pfp}
+              followedBy="gaara"
+              pfp={car2}
               action="Seguir"
-              textsize={12}
             />
           </div>
+
+          <div className="text-white pt-8">
+            <ul className="flex flex-wrap gap-1.5 justify-start text-xs text-zinc-500">
+              <li><a href="" className="hover:underline">Sobre</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Imprensa</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">API</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Carreiras</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Privacidade</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Termos</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Localizações</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Idioma</a></li>
+              <li>.</li>
+              <li><a href="" className="hover:underline">Meta Verified</a></li>
+            </ul>
+          <p className="pt-4 text-zinc-500 text-xs">© 2025 INSTAGRAM FROM META</p>
+          </div>
+
         </div>
       </div>
     </div>

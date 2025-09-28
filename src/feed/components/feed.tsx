@@ -14,7 +14,7 @@ const Feed = () => {
       <FeedCard
         username="samuelrocha.o"
         profilePic={gatoazulPic}
-        verified={true}
+        verified={false}
         timePast="33 min"
       />
       <FeedCard

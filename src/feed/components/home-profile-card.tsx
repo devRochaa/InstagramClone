@@ -4,11 +4,10 @@ type Props = {
   pfp: string;
   username: string;
   name: string;
-  action: string;
-  textsize: number;
+  action?: string;
 };
 
-const SuggestionCard = ({ pfp, username, name, action }: Props) => {
+const HomeProfileCard = ({ pfp, username, name, action = "Mudar" }: Props) => {
   return (
     <div className="bg-black h-13 flex flex-row items-center">
       <img src={pfp} className="rounded-full w-11 h-11" alt="" />
@@ -23,4 +22,4 @@ const SuggestionCard = ({ pfp, username, name, action }: Props) => {
   );
 };
 
-export default SuggestionCard;
+export default HomeProfileCard;
