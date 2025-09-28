@@ -12,10 +12,52 @@ const HomeSuggestions = () => {
           pfp={pfp}
           action="Mudar"
         />
-        <div>
-          <p className="text-zinc-400 font-medium text-ls">
-            Sugestões para você
-          </p>
+        <div className="pt-5 flex flex-col">
+          <div className="flex flex-row">
+            <p className="text-zinc-400 font-medium text-sm">
+              Sugestões para você
+            </p>
+            <p className="text-white text-[12px] font-medium ml-auto">
+              Ver Tudo
+            </p>
+          </div>
+          <div className="pt-3 flex flex-col gap-2">
+            <SuggestionCard
+              username="rochadaniel.o"
+              name="Seguido(a) por luans ..."
+              pfp={pfp}
+              action="Seguir"
+              textsize={12}
+            />
+            <SuggestionCard
+              username="rochadaniel.o"
+              name="Seguido(a) por luans ..."
+              pfp={pfp}
+              action="Seguir"
+              textsize={12}
+            />
+            <SuggestionCard
+              username="rochadaniel.o"
+              name="Seguido(a) por luans ..."
+              pfp={pfp}
+              action="Seguir"
+              textsize={12}
+            />
+            <SuggestionCard
+              username="rochadaniel.o"
+              name="Seguido(a) por luans ..."
+              pfp={pfp}
+              action="Seguir"
+              textsize={12}
+            />
+            <SuggestionCard
+              username="rochadaniel.o"
+              name="Seguido(a) por luans ..."
+              pfp={pfp}
+              action="Seguir"
+              textsize={12}
+            />
+          </div>
         </div>
       </div>
     </div>

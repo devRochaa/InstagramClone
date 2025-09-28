@@ -5,6 +5,7 @@ type Props = {
   username: string;
   name: string;
   action: string;
+  textsize: number;
 };
 
 const SuggestionCard = ({ pfp, username, name, action }: Props) => {
