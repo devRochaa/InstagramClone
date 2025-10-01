@@ -1,10 +1,12 @@
 import React from "react";
-import pfp from "../../img/fotoperfil.jpg";
-import catPfp from "../../img/gatoazul.jpg";
-import car2 from "../../img/foto.jpeg";
-import mug from "../../img/istockphoto-672074756-mugshot.jpg";
-import HomeProfileCard from "./home-profile-card";
-import HomeFollowSuggestionCard from "./home-follow-suggestion-card";
+import {
+  car2,
+  catPfp,
+  HomeFollowSuggestionCard,
+  HomeProfileCard,
+  mug,
+  pfp,
+} from "..";
 
 const HomeSuggestions = () => {
   return (
@@ -60,27 +62,64 @@ const HomeSuggestions = () => {
 
           <div className="text-white pt-8">
             <ul className="flex flex-wrap gap-1.5 justify-start text-xs text-zinc-500">
-              <li><a href="" className="hover:underline">Sobre</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Sobre
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Imprensa</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Imprensa
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">API</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  API
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Carreiras</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Carreiras
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Privacidade</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Privacidade
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Termos</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Termos
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Localizações</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Localizações
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Idioma</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Idioma
+                </a>
+              </li>
               <li>.</li>
-              <li><a href="" className="hover:underline">Meta Verified</a></li>
+              <li>
+                <a href="" className="hover:underline">
+                  Meta Verified
+                </a>
+              </li>
             </ul>
-          <p className="pt-4 text-zinc-500 text-xs">© 2025 INSTAGRAM FROM META</p>
+            <p className="pt-4 text-zinc-500 text-xs">
+              © 2025 INSTAGRAM FROM META
+            </p>
           </div>
-
         </div>
       </div>
     </div>

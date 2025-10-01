@@ -1,7 +1,5 @@
 import React from "react";
-import appleImg from "../../img/apple.png";
-import googleImg from "../../img/google.png";
-import intaLogo from "../../img/insta-logo.png";
+import { appleImg, googleImg, intaLogo } from "..";
 
 const FormLogin = () => {
   return (

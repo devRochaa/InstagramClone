@@ -1,6 +1,5 @@
 import React from "react";
-import FeedCard from "./feed-card";
-import gatoazulPic from "../../img/gatoazul.jpg";
+import { gatoazulPic, FeedCard } from "..";
 
 const Feed = () => {
   return (

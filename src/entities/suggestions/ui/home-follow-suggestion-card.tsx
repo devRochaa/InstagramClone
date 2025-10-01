@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
   pfp: string;
@@ -7,7 +7,12 @@ type Props = {
   action: string;
 };
 
-const HomeFollowSuggestionCard = ({ pfp, username, followedBy, action = "Seguir" }: Props) => {
+const HomeFollowSuggestionCard = ({
+  pfp,
+  username,
+  followedBy,
+  action = "Seguir",
+}: Props) => {
   return (
     <div className="bg-black h-13 flex flex-row items-center">
       <img src={pfp} className="rounded-full w-11 h-11" alt="" />
@@ -22,5 +27,4 @@ const HomeFollowSuggestionCard = ({ pfp, username, followedBy, action = "Seguir"
   );
 };
 
-
-export default HomeFollowSuggestionCard
+export default HomeFollowSuggestionCard;

@@ -1,6 +1,5 @@
 import React from "react";
-import instaLogo from "../../img/Instagram-Logo.png";
-import SidebarCard from "../../widgets/sidebar/ui/sidebar-card";
+
 import { MdHomeFilled } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegCompass, FaRegHeart } from "react-icons/fa";
@@ -9,7 +8,9 @@ import { BiMessageRoundedCheck } from "react-icons/bi";
 import { LuSquarePlus } from "react-icons/lu";
 import { AiOutlineMenu } from "react-icons/ai";
 import { HiOutlineSquares2X2 } from "react-icons/hi2";
-import profilePic from "../../img/fotoperfil.jpg";
+
+import SidebarCard from "./sidebar-card";
+import { instaLogo, profilePic } from "..";
 
 const Sidebar = () => {
   return (

@@ -1,11 +1,12 @@
 import React from "react";
-import FeedCardHeader from "./feed-card-header";
-import gatoazulPic from "../../img/gatoazul.jpg";
-import mugshotPic from "../../img/istockphoto-672074756-mugshot.jpg";
-import pic from "../../img/foto.jpeg";
+
 import { FaRegBookmark, FaRegComment, FaRegHeart } from "react-icons/fa6";
 import { LuSend } from "react-icons/lu";
 import { FaRegSmile } from "react-icons/fa";
+import FeedCardHeader from "./feed-card-header";
+import { gatoazulPic } from "@/widgets/feed";
+import { mugshotPic } from "@/widgets/stories";
+import { pic } from "..";
 
 type Props = {
   profilePic: string;

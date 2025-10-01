@@ -1,7 +1,5 @@
 import React from "react";
-import StoriesRow from "./stories-row";
-import Feed from "./feed";
-import HomeSuggestions from "./home-suggestions";
+import { StoriesRow, Feed, HomeSuggestions } from "@/pages/home";
 
 const Home = () => {
   return (
