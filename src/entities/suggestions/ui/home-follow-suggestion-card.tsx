@@ -18,7 +18,9 @@ const HomeFollowSuggestionCard = ({
       <img src={pfp} className="rounded-full w-11 h-11" alt="" />
       <div className="pl-3 -space-y-0.2">
         <p className="text-sm font-medium text-white">{username}</p>
-        <p className="text-xs text-zinc-400">Seguido(a) por {followedBy}</p>
+        <p className="text-xs text-text-lightgray">
+          Seguido(a) por {followedBy}
+        </p>
       </div>
       <div className="ml-auto">
         <p className="text-[#6f86d1] text-xs font-bold">{action}</p>
