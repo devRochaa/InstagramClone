@@ -14,7 +14,7 @@ import { instaLogo, profilePic } from "..";
 
 const Sidebar = () => {
   return (
-    <div className="fixed top-0 left-0 h-screen w-[18%] bg-black px-2 py-4 flex flex-col justify-between border-r border-zinc-800">
+    <div className="fixed top-0 left-0 h-screen w-[18%] bg-black px-2 py-4 flex flex-col justify-between border-r border-border-dark">
       <div className="border h-full flex flex-col gap-2.5">
         <div className="h-16 flex items-center pl-3 mb-4">
           <img src={instaLogo} alt="Instagram" className="w-26 h-14 invert" />

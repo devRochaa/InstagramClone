@@ -69,7 +69,9 @@ const FeedCard = ({ profilePic, username, verified, timePast }: Props) => {
 
         {/* */}
         <div className="flex items-center">
-          <p className="text-sm text-zinc-400">Adicione um comentário...</p>
+          <p className="text-sm text-text-lightgray">
+            Adicione um comentário...
+          </p>
           <FaRegSmile color="#9f9fa9" size={15} className="ml-auto" />
         </div>
       </div>

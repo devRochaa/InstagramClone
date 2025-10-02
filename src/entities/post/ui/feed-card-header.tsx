@@ -24,8 +24,8 @@ const FeedCardHeader = ({
       </div>
       <p className="text-sm font-bold">{username}</p>
       {verified && <MdVerified color="#0095f6" />}
-      <p className="text-sm text-zinc-400 font-bold">•</p>
-      <p className="text-sm text-zinc-400">{timePast}</p>
+      <p className="text-sm text-text-lightgray font-bold">•</p>
+      <p className="text-sm text-text-lightgray">{timePast}</p>
       <BsThreeDots size={20} className="ml-auto" />
     </div>
   );
