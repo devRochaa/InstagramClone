@@ -9,8 +9,8 @@ namespace InstagramClone.Infrasctructure.Repositories;
 internal class EfRepository<TEntity>(AppDbContext context) : IRepository<TEntity>
         where TEntity : class, IEntity {
     protected readonly AppDbContext _dbContext = context;
-    // --- ENTIDADE COMPLETA ---
 
+    // --- ENTIDADE COMPLETA ---
     public async Task<TEntity?> FirstOrDefaultAsync(
         Expression<Func<TEntity, bool>> where, 
         bool tracking = true, 
@@ -42,43 +42,76 @@ internal class EfRepository<TEntity>(AppDbContext context) : IRepository<TEntity
     }
 
     // --- PROJECTION ---
-    public Task<TProjection?> FirstOrDefaultAsync<TProjection>(Expression<Func<TEntity, TProjection>> selector, Expression<Func<TEntity, bool>> where, CancellationToken? cancellationToken = null)
+    public Task<TProjection?> FirstOrDefaultAsync<TProjection>(
+        Expression<Func<TEntity, TProjection>> selector, 
+        Expression<Func<TEntity, bool>> where, 
+        CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var query = _dbContext
+            .Set<TEntity>()
+            .AsNoTracking()
+            .Where(where)
+            .Select(selector);
+
+        return query.FirstOrDefaultAsync(cancellationToken);
     }
-    public virtual async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
+
+    public async Task<IReadOnlyCollection<TProjection>> ToListAsync<TProjection>(
+        Expression<Func<TEntity, TProjection>> selector, 
+        Expression<Func<TEntity, bool>>? where = null, 
+        bool tracking = false, 
+        CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var query = _dbContext
+            .Set<TEntity>()
+            .AsQueryable();
+
+        if (!tracking)
+        {
+            query = query.AsNoTracking();
+        }
+
+        if (where is not null)
+        {
+            query = query.Where(where);
+        }
+
+        return await query.Select(selector).ToListAsync(cancellationToken);
+    }
+    public virtual async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> where,
+                               CancellationToken cancellationToken = default)
+    {
+        return await _dbContext
+            .Set<TEntity>()
+            .AsNoTracking()
+            .AnyAsync(where, cancellationToken);
+    }
+
+    public virtual async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
+    {
+        var entry = await _dbContext
+            .Set<TEntity>()
+            .AddAsync(entity, cancellationToken);
+        return entry.Entity;
     }
 
     public Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+       return _dbContext
+            .Set<TEntity>()
+            .AddRangeAsync(entities, cancellationToken);
     }
+    public void Update(TEntity entity) =>
+        _dbContext.Set<TEntity>().Update(entity);
 
-    public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> where, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
+    public void UpdateRange(IEnumerable<TEntity> entities) =>
+        _dbContext.Set<TEntity>().UpdateRange(entities);
+    
+    public void Remove(TEntity entity) =>
+        _dbContext.Set<TEntity>().Remove(entity);
+
+    public void RemoveRange(IEnumerable<TEntity> entities) =>
+        _dbContext.Set<TEntity>().RemoveRange(entities);
 
 
-    public void Remove(TEntity entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IReadOnlyCollection<TProjection>> ToListAsync<TProjection>(Expression<Func<TEntity, TProjection>> selector, Expression<Func<TEntity, bool>>? where = null, bool tracking = false, CancellationToken? cancellationToken = null)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(TEntity entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateRange(IEnumerable<TEntity> entity)
-    {
-        throw new NotImplementedException();
-    }
 }
