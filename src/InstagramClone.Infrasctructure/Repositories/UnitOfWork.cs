@@ -5,26 +5,58 @@ using Microsoft.EntityFrameworkCore.Storage;
 namespace InstagramClone.Infrasctructure.Repositories;
 
 internal class UnitOfWork(AppDbContext context) : IUnitOfWork{
-    private IDbContextTransaction? _transaction;
+    private IDbContextTransaction? _currentTransaction;
     private int _transactionDepth;
 
-    public Task BeginTransactionAsync(CancellationToken cancellation = default)
+    public async Task BeginTransactionAsync(CancellationToken cancellation = default)
     {
-        throw new NotImplementedException();
+        if(_transactionDepth == 0)
+        {
+            _currentTransaction = await context.Database.BeginTransactionAsync(cancellation);
+        }
+        _transactionDepth++;
     }
 
-    public Task CommitAsync(CancellationToken cancellation = default)
+    public async Task CommitAsync(CancellationToken cancellation = default)
     {
-        throw new NotImplementedException();
+        //tenta salvar as mudanças antes de commitar a transação
+        await context.SaveChangesAsync(cancellation);
+
+        if (_transactionDepth <= 0 || _currentTransaction == null)
+            return;
+
+        _transactionDepth--;
+
+        if(_transactionDepth == 0)
+        {
+            await _currentTransaction.CommitAsync(cancellation);
+            await DisposeTransactionAsync();
+        }
     }
 
-    public ValueTask DisposeAsync()
+    public async Task RollbackAsync(CancellationToken cancellation = default)
     {
-        throw new NotImplementedException();
+        if (_transactionDepth <= 0 || _currentTransaction == null)
+            return;
+
+        _transactionDepth = 0;
+
+        await _currentTransaction.RollbackAsync(cancellation);
+        await DisposeTransactionAsync();
+
+        //ChangeTracker rastreia todas as entidades carregadas no contexto (AppDbContext)
+        //.Clear() limpa completamente o rastreamento de todas as entidades no contexto.
+        context.ChangeTracker.Clear();
     }
 
-    public Task RollbackAsync(CancellationToken cancellation = default)
+    public async ValueTask DisposeTransactionAsync()
     {
-        throw new NotImplementedException();
+        if(_currentTransaction != null)
+        {
+            await _currentTransaction.DisposeAsync();
+            _currentTransaction = null;
+        }
     }
+
+    public ValueTask DisposeAsync() => context.DisposeAsync();
 }
